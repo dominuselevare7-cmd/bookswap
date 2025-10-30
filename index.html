@@ -188,11 +188,11 @@
   <!-- Navbar -->
   <nav>
     <h1>BookSwap</h1>
-    <div>
+    <div id="nav-links">
       <a href="#hero">Home</a>
       <a href="#categories">Categories</a>
       <a href="#books">Books</a>
-      <a href="login.html">Login</a>
+      <a href="login.html" id="login-link">Login</a>
     </div>
   </nav>
 
@@ -280,6 +280,58 @@
   <footer>
     © 2025 BookSwap — Built with ❤️ using HTML & CSS only
   </footer>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+      import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBEuYv6jEiJCDFQ8NQ88lrC5Hma4HnKQoc",
+        authDomain: "bookswap-9ae9d.firebaseapp.com",
+        projectId: "bookswap-9ae9d",
+        storageBucket: "bookswap-9ae9d.firebasestorage.app",
+        messagingSenderId: "310331116609",
+        appId: "1:310331116609:web:e3459b10901ebf51be0ac0",
+        measurementId: "G-X20PPYP1KE"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+  // Check if user is logged in or not
+      onAuthStateChanged(auth, (user) => {
+        const navLinks = document.getElementById("nav-links");
+        const loginLink = document.getElementById("login-link");
+
+        if (user) {
+      // If logged in
+          const userEmail = user.email.split('@')[0]; // short name before @
+          navLinks.innerHTML = `
+            <a href="#hero">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#books">Books</a>
+            <span style="margin-left:10px;">👋 Welcome, <b>${userEmail}</b></span>
+            <a href="#" id="logout-btn" style="color:#ffb3b3; margin-left:15px;">Logout</a>
+          `;
+
+      // Add logout functionality
+          document.getElementById("logout-btn").addEventListener("click", async () => {
+            await signOut(auth);
+            alert("You’ve been logged out.");
+            window.location.href = "login.html";
+          });
+
+        } else {
+      // Not logged in
+          navLinks.innerHTML = `
+            <a href="#hero">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#books">Books</a>
+            <a href="login.html">Login</a>
+          `;
+        }
+      });
+    </script>
 
 </body>
 </html>
+
