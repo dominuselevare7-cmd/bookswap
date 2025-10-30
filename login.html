@@ -86,33 +86,41 @@
     </form>
 
     <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-      import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+  // Import Firebase SDKs
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+      import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
 
+  // Your Firebase config
       const firebaseConfig = {
-        apiKey: "YOUR-API-KEY",
-        authDomain: "YOUR-DOMAIN.firebaseapp.com",
-        projectId: "YOUR-PROJECT-ID",
-        appId: "YOUR-APP-ID"
+        apiKey: "AIzaSyBEuYv6jEiJCDFQ8NQ88lrC5Hma4HnKQoc",
+        authDomain: "bookswap-9ae9d.firebaseapp.com",
+        projectId: "bookswap-9ae9d",
+        storageBucket: "bookswap-9ae9d.firebasestorage.app",
+        messagingSenderId: "310331116609",
+        appId: "1:310331116609:web:e3459b10901ebf51be0ac0",
+        measurementId: "G-X20PPYP1KE"
       };
 
+  // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
 
-      document.getElementById("login-form").addEventListener("submit", async (e) => {
+  // Handle login
+      document.querySelector("form").addEventListener("submit", async (e) => {
         e.preventDefault();
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+        const email = document.querySelector('input[type="email"]').value;
+        const password = document.querySelector('input[type="password"]').value;
 
         try {
           await signInWithEmailAndPassword(auth, email, password);
           alert("Login successful!");
-          window.location.href = "index.html"; // Redirect to homepage
-        } catch (error) {
-          alert("Invalid credentials: " + error.message);
+          window.location.href = "index.html";
+        } catch (err) {
+          alert("Error: " + err.message);
         }
       });
     </script>
+
 
     <a href="signup.html">Create new account</a>
     <a href="index.html">Back to Home</a>
@@ -120,4 +128,5 @@
 
 </body>
 </html>
+
 
