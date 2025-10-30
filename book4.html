@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>BookSwap - Book Details</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f8f9fc;
+      color: #333;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      background: #fff;
+      margin: auto;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .book-image img {
+      width: 300px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
+
+    .book-details {
+      flex: 1;
+    }
+
+    .book-details h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #4facfe;
+    }
+
+    .book-details p {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .price {
+      font-size: 20px;
+      color: #333;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .buy-btn {
+      display: inline-block;
+      margin-top: 25px;
+      background: #4facfe;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 30px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .buy-btn:hover {
+      background: #00c6ff;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 25px;
+      margin-left: 20px;
+      text-decoration: none;
+      color: #4facfe;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 700px){
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .book-image img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="book-image">
+      <img src="cengage.jpg" alt="Book Cover">
+    </div>
+
+    <div class="book-details">
+      <h2>JEE Mains Mathematics</h2>
+      <p><strong>Author:</strong> G. Tewani</p>
+      <p><strong>Condition:</strong> Very often used</p>
+      <p class="price">Price: ₹430</p>
+
+      <p><strong>Description:</strong> JEE (Main) Mathematics, a Cengage Exam Crack Series® title, has been designed in keeping with the needs and expectations of students appearing for JEE Main. Its coherent presentation and compatibility with the latest prescribed syllabus and pattern of JEE (as per the latest NTA notification) will prove extremely useful to JEE aspirants.</p>
+
+      <a href="#" class="buy-btn">Buy Now</a>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </div>
+
+</body>
+</html>
